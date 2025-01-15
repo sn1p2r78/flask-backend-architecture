@@ -4,6 +4,8 @@ from flask.bcrypt import Bcrypt
 from flask.login import LoginManager, UserMixin, login_user, logout_user, current_user
 from flask.socketio import SocketIO
 import requests
+import random
+import string
 
 # Initialize extensions
 db = SQLAlchemy()
@@ -11,7 +13,8 @@ bcrypt = Bcrypt()
 login_manager = LoginManager()
 socketio = SocketIO()
 
-# Define app\ndef create_app():
+# Define app
+def create_app():
     app = Flask(__name__)
 
     # Configurations

@@ -58,3 +58,24 @@ class Statistic(db.Model):
     service_id = db.Column(db.Integer, db.Foreign(\"service.id\"))
     timestamp = db.Column(db.DateTime, default=db.func.current_timestamp())
     details = db.Column(db.Text, nullable=True)
+
+# Directory structure
+# app/
+#   __init__.py
+#   routes/
+#     __init__.py
+#   �� � auth.py
+#   ₂ admin.py
+#     service.py
+#   ₂ microsoft_graph.py
+#   templates/
+#     index.html
+# tests/
+# requirements.txt
+
+# Entry point
+if __name__ == "__main__":
+    app = create_app()
+    with app.app_context():
+        db.create_all()  # Create database tables
+    socketio.run(app, debug=True)
